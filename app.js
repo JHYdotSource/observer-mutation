@@ -62,10 +62,14 @@
             for (const entry of entries) {
                 const consoleDisplay = document.querySelector(selectors.consoleOutput);
                 console.log(entry)
-                if (entry.target.children.length > 10) {
-                    const addButtons = document.querySelectorAll(selectors.controlButtonAdd);
-                    if (addButtons) {
-                        addButtons.forEach(addBtn => addBtn.disabled = true);
+                const addButtons = document.querySelectorAll(selectors.controlButtonAdd);
+                if (addButtons) {
+                    if (entry.type === 'childList') {
+                        if (entry.target.children.length > 10) {
+                            addButtons.forEach(addBtn => addBtn.disabled = true);
+                        } else {
+                            addButtons.forEach(addBtn => addBtn.disabled = false);
+                        }
                     }
                 }
                 if (consoleDisplay) {
