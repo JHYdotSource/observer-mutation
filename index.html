@@ -3,11 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mutation Observer</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     
+    <div class="wrapper">
+        <div class="mutation__container">
+            <div id="child__1" class="mutation__container--child">
+                <button class="control__button change__attribute">Change attribute</button>
+                <button class="control__button add__element">Add element</button>
+                <button class="control__button remove__element" disabled>Remove element</button>
+            </div>
+            <div id="child__2" class="mutation__container--child">
+                <button class="control__button change__attribute">Change attribute</button>
+                <button class="control__button add__element">Add element</button>
+                <button class="control__button remove__element">Remove element</button>
+            </div>
+            <div id="child__3" class="mutation__container--child">
+                <button class="control__button change__attribute">Change attribute</button>
+                <button class="control__button add__element">Add element</button>
+                <button class="control__button remove__element">Remove element</button>
+            </div>
+            <div id="child__4" class="mutation__container--child">
+                <button class="control__button change__attribute">Change attribute</button>
+                <button class="control__button add__element">Add element</button>
+                <button class="control__button remove__element">Remove element</button>
+            </div>
+            <div id="child__5" class="mutation__container--child">
+                <button class="control__button change__attribute">Change attribute</button>
+                <button class="control__button add__element">Add element</button>
+                <button class="control__button remove__element">Remove element</button>
+            </div>
+        </div>
+
+        <div class="console__display">
+            <span>Event Console:</span>
+            <pre class="console__display--output"></pre>
+        </div>
+    </div>
+
     <script src="./app.js"></script>
 </body>
 </html>

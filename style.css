@@ -1,0 +1,77 @@
+:root {
+    --lightestGrey: #f7f7f7;
+    --baseButtonBackground: #3f85e1;
+    --baseButtonBackgroundHover:#5798ed;
+    --baseButtonText: #ffffff;
+    --errorButton: #7f1414;
+    --errorButtonHover: #942929;
+    --successButton: #188361;
+    --successButtonHover: #339979;
+    --buttonDisabled: #888888;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.mutation__container {
+    background-color: var(--lightestGrey);
+    width: fit-content;
+}
+.mutation__container--child {
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+}
+.control__button {
+    background-color: var(--baseButtonBackground);
+    color: var(--baseButtonText);
+    padding: 16px;
+    border: 0;
+}
+.control__button:hover {
+    background-color: var(--baseButtonBackgroundHover);
+    cursor: pointer;
+}
+.change__attribute::before {
+    content: "↺";
+    padding: 0 1ch 0 0;
+}
+.remove__element {
+    background-color: var(--errorButton);
+}
+.remove__element:hover {
+    background-color: var(--errorButtonHover);
+}
+.remove__element::before {
+    content: "-";
+    padding: 0 1ch 0 0;
+}
+.add__element {
+    background-color: var(--successButton);
+}
+.add__element:hover {
+    background-color: var(--successButtonHover);
+}
+.add__element::before {
+    content: "+";
+    padding: 0 1ch 0 0;
+}
+.control__button:disabled {
+    background-color: var(--buttonDisabled);
+}
+.console__display {
+    background-color: rgb(37, 38, 48);
+    color: white;
+    width: 500px;
+    height: 300px;
+    border-radius: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 16px;
+    overflow-y: scroll;
+}
