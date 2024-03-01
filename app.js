@@ -61,7 +61,8 @@
         const mutationConfig = { 
             attributes: true, 
             childList: true, 
-            subtree: true 
+            subtree: true,
+            characterData: true 
         };
 
         const mutationCallback = (entries, observer) => {
