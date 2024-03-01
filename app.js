@@ -47,7 +47,13 @@
         }
     }
 
-    // const output = (title, message) => ()
+    const output = (outputTitle, outputMessage) => {
+        const consoleDisplay = document.querySelector(selectors.consoleOutput);
+        if (consoleDisplay) {
+            consoleDisplay.append(`${outputTitle}: ${outputMessage}\r\n`);
+            consoleDisplay.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+    }
 
     const mtnContainer = document.querySelector(selectors.mutationContainer);
     if (mtnContainer) {
@@ -60,7 +66,6 @@
 
         const mutationCallback = (entries, observer) => {
             for (const entry of entries) {
-                const consoleDisplay = document.querySelector(selectors.consoleOutput);
                 console.log(entry)
                 const addButtons = document.querySelectorAll(selectors.controlButtonAdd);
                 if (addButtons) {
@@ -72,27 +77,24 @@
                         }
                     }
                 }
-                if (consoleDisplay) {
-                    consoleDisplay.append(`EventType: ${entry.type}\r\n`)
-                    if (entry.type === 'attributes') {
-                        consoleDisplay.append(`Changed attribute: ${entry.attributeName}\r\n`);
-                        consoleDisplay.append(`ID: ${entry.target.id}\r\n\r\n`);
+                
+                output('EventType', entry.type);
+                if (entry.type === 'attributes') {
+                    output('Changed attribute', entry.attributeName);
+                    if (entry.target.id) {
+                        output('ID', entry.target.id);
                     }
                 }
 
                 if (entry.removedNodes) {
                     entry.removedNodes.forEach(removedNode => {
-                        if (consoleDisplay) {
-                            consoleDisplay.append(`Removed: ${removedNode.id}\r\n\r\n`);
-                        }              
+                        output('Removed', removedNode.id);           
                     })
                 }
 
                 if (entry.addedNodes) {
                     entry.addedNodes.forEach(addedNode => {
-                        if (consoleDisplay) {
-                            consoleDisplay.append(`Added: ${addedNode.id}\r\n\r\n`);
-                        }              
+                        output('Added', addedNode.id);          
                     })
                 }
                 

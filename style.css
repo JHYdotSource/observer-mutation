@@ -16,7 +16,6 @@ body {
 
 .wrapper {
     display: flex;
-    align-items: center;
 }
 
 .mutation__container {
@@ -69,9 +68,8 @@ body {
     background-color: rgb(37, 38, 48);
     color: white;
     width: 500px;
-    height: 300px;
-    border-radius: 16px;
+    height: 90vh;
     font-family: 'Courier New', Courier, monospace;
-    padding: 16px;
+    padding: 16px 16px 0 16px;
     overflow-y: scroll;
 }
